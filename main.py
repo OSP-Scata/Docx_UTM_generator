@@ -12,7 +12,7 @@ FIN = '&utm_content=article'
 
 def open_file():
     ready['text'] = ''
-    selected_file["text"] = ''
+    selected_file['text'] = ''
     file = filedialog.askopenfile(mode='r', filetypes=[('Документ Word', '*.docx')])
     if file:
         global filepath
@@ -21,7 +21,7 @@ def open_file():
         filepath = os.path.abspath(file.name)
         filename = os.path.basename(file.name)
         name, ext = os.path.splitext(os.path.basename(filepath))
-        selected_file["text"] = filename
+        selected_file['text'] = filename
 
 
 def submit():
@@ -40,7 +40,7 @@ def submit():
                         old_url = rels[rel]._target
                         new_url = old_url + UTM_SOURCE + platform + MEDIUM + campaign_name + FIN
                         rels[rel]._target = new_url
-                out_file = "workfiles/{name}_{uid}{ext}".format(name=name, uid=platform.rstrip('\n'), ext=ext)
+                out_file = 'workfiles/{name}_{uid}{ext}'.format(name=name, uid=platform.rstrip('\n'), ext=ext)
                 document.save(out_file)
                 ready['text'] = 'Готово!'
             except NameError:
