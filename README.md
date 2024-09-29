@@ -1,2 +1,2 @@
 ## Генератор UTM-меток для ссылок внутри файлов Word (.docx).
-Установить пакеты из requirements (install.bat), запустить main.py.
+Установить пакеты из requirements (install.bat), запустить main.py. Скрипт с графическим интерфейсом.
