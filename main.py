@@ -47,7 +47,7 @@ def submit():
                 except NameError:
                     ready['text'] = 'Укажите файл!'
         except FileNotFoundError:
-            ready['text'] = 'Отсутствует список площадок! Убедитесь, что в папке workfiles есть файл platforms.txt.'
+            ready['text'] = 'Отсутствует список площадок! Убедитесь, что в папке config есть файл platforms.txt.'
 
 
 root = tk.Tk()
