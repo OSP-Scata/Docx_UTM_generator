@@ -30,7 +30,7 @@ def submit():
         ready['text'] = 'Введите название кампании!'
     else:
         try:
-            with open('workfiles/platforms.txt', 'r') as f:
+            with open('config/platforms.txt', 'r') as f:
                 platforms = f.readlines()
             for platform in platforms:
                 try:
