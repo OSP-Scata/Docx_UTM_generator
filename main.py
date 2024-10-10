@@ -25,7 +25,7 @@ def open_file():
 
 
 def submit():
-    campaign_name = campaign.get()
+    campaign_name = campaign.get().strip()
     if not campaign_name:
         ready['text'] = 'Введите название кампании!'
     else:
