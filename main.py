@@ -39,7 +39,7 @@ def submit():
                     for rel in rels:
                         if rels[rel].reltype == RT.HYPERLINK:
                             old_url = rels[rel]._target
-                            new_url = old_url + UTM_SOURCE + platform + MEDIUM + campaign_name + FIN
+                            new_url = old_url + UTM_SOURCE + platform.rstrip('\n') + MEDIUM + campaign_name + FIN
                             rels[rel]._target = new_url
                     out_file = 'workfiles/{name}_{uid}{ext}'.format(name=name, uid=platform.rstrip('\n'), ext=ext)
                     document.save(out_file)
