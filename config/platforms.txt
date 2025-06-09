@@ -3,3 +3,4 @@ zen
 telegraph
 blogger
 livejournal
+promopages

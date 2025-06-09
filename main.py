@@ -6,7 +6,8 @@ from docx import Document
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 
 UTM_SOURCE = '?utm_source='
-MEDIUM = '&utm_medium=blogs&utm_campaign='
+MEDIUM = '&utm_medium='
+CAMPAIGN = '&utm_campaign='
 FIN = '&utm_content=article'
 
 
@@ -36,10 +37,15 @@ def submit():
                 try:
                     document = Document(filepath)
                     rels = document.part.rels
+                    if platform.rstrip('\n') == 'promopages':
+                        medium_type = 'cpc'
+                    else:
+                        medium_type = 'blogs'
                     for rel in rels:
                         if rels[rel].reltype == RT.HYPERLINK:
                             old_url = rels[rel]._target
-                            new_url = old_url + UTM_SOURCE + platform.rstrip('\n') + MEDIUM + campaign_name + FIN
+                            new_url = old_url + UTM_SOURCE + platform.rstrip(
+                                '\n') + MEDIUM + medium_type + CAMPAIGN + campaign_name + FIN
                             rels[rel]._target = new_url
                     out_file = 'workfiles/{name}_{uid}{ext}'.format(name=name, uid=platform.rstrip('\n'), ext=ext)
                     document.save(out_file)
